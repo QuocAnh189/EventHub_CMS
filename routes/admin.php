@@ -1,9 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\AdminDashboardController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/dashboard', function () {
-    return response()->json([
-        'message' => 'Welcome to the admin dashboard'
-    ]);
-});
+Route::get('/dashboard', [AdminDashboardController::class, 'index'])->name('dashboard');;
