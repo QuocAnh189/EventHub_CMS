@@ -2,16 +2,20 @@
 
 namespace Database\Seeders;
 
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Domains\Coupon\Model\Coupon;
+use App\Domains\User\Model\User;
 use Illuminate\Database\Seeder;
 
 class CouponSeeder extends Seeder
 {
-    /**
-     * Run the database seeds.
-     */
     public function run(): void
     {
-        //
+        $users = User::all();
+
+        foreach ($users as $user) {
+            Coupon::factory(5)->create([
+                'user_id' => $user->id,
+            ]);
+        }
     }
 }

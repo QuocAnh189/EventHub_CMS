@@ -2,19 +2,25 @@
 
 namespace Database\Factories;
 
+use App\Domains\Category\Model\Category;
 use Illuminate\Database\Eloquent\Factories\Factory;
+use Illuminate\Support\Str;
 
 class CategoryFactory extends Factory
 {
-    /**
-     * Define the model's default state.
-     *
-     * @return array<string, mixed>
-     */
+    protected $model = Category::class;
+
     public function definition(): array
     {
+        $create_date = fake()->dateTimeBetween('-3 years', '-2 years');
         return [
-            //
+            'id' => Str::uuid(),
+            'name' => fake()->word(),
+            'icon_image_url' => fake()->imageUrl(),
+            'icon_image_file_name' => fake()->word().'.png',
+            'color' => fake()->hexColor(),
+            'created_at' => $create_date,
+            'updated_at' => $create_date,
         ];
     }
 }
