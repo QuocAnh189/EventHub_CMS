@@ -18,6 +18,7 @@ class MessageAttachmentsSeeder extends Seeder
                 MessageAttachments::factory()->create([
                     'message_id' => $message->id,
                     'created_at' => $message->created_at,
+                    'updated_at' => now(),
                 ]);
             }
         }

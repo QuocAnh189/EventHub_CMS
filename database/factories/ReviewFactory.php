@@ -16,6 +16,7 @@ class ReviewFactory extends Factory
             'id' => Str::uuid(),
             'content' => fake()->realText(),
             'rate' => fake()->numberBetween(1, 5),
+            'is_positive' => fake()->boolean(),
         ];
     }
 }

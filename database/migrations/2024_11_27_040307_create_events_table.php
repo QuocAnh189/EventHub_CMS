@@ -25,6 +25,8 @@ return new class extends Migration {
             $table->boolean('is_private')->default(true);
             $table->timestamps();
             $table->softDeletes();
+
+            $table->unique(['user_id', 'name']);
         });
     }
 

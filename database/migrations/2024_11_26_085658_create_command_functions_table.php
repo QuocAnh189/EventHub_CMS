@@ -5,9 +5,6 @@ use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration {
-    /**
-     * Run the migrations.
-     */
     public function up(): void
     {
         Schema::create('command_functions', function (Blueprint $table) {
@@ -16,12 +13,10 @@ return new class extends Migration {
             $table->foreignUuid('function_id')->constrained('functions')->cascadeOnDelete();
             $table->timestamps();
             $table->softDeletes();
+
+            $table->unique(['command_id', 'function_id']);
         });
     }
-
-    /**
-     * Reverse the migrations.
-     */
     public function down(): void
     {
         Schema::dropIfExists('command_functions');

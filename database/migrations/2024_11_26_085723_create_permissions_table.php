@@ -5,9 +5,6 @@ use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration {
-    /**
-     * Run the migrations.
-     */
     public function up(): void
     {
         Schema::create('permissions', function (Blueprint $table) {
@@ -17,12 +14,11 @@ return new class extends Migration {
             $table->foreignUuid('command_id')->constrained('commands')->cascadeOnDelete();
             $table->timestamps();
             $table->softDeletes();
+
+            $table->unique(['function_id', 'role_id', 'command_id']);
         });
     }
 
-    /**
-     * Reverse the migrations.
-     */
     public function down(): void
     {
         Schema::dropIfExists('permissions');

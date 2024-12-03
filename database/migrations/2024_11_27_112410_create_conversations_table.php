@@ -15,6 +15,8 @@ return new class extends Migration {
             $table->foreignUuid('last_message_id')->nullable();
             $table->timestamps();
             $table->softDeletes();
+
+            $table->unique(['user_id', 'event_id']);
         });
     }
 

@@ -16,6 +16,7 @@ return new class extends Migration {
             $table->foreignUuid('event_id')->constrained('events')->cascadeOnDelete();
             $table->string('content');
             $table->float('rate');
+            $table->boolean('is_positive')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });

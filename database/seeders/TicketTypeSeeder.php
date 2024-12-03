@@ -25,6 +25,7 @@ class TicketTypeSeeder extends Seeder
                     'sale' => $sales[$i],
                     'price' => $price[$i],
                     'created_at' => $event->created_at,
+                    'updated_at' => now()
                 ]);
             }
         }

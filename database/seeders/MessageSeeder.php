@@ -19,6 +19,7 @@ class MessageSeeder extends Seeder
                         'sender_id' => $conversation->user_id,
                         'receiver_id' => $conversation->organizer_id,
                         'created_at' => fake()->dateTimeBetween($conversation->created_at, 'now'),
+                        'updated_at' => now()
                     ]);
                 } else {
                     Message::factory()->create([
@@ -26,6 +27,7 @@ class MessageSeeder extends Seeder
                         'sender_id' => $conversation->organizer_id,
                         'receiver_id' => $conversation->user_id,
                         'created_at' => fake()->dateTimeBetween($conversation->created_at, 'now'),
+                        'updated_at' => now()
                     ]);
                 }
             }

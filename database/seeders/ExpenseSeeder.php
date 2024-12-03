@@ -16,6 +16,7 @@ class ExpenseSeeder extends Seeder
                 [
                     'event_id' => $event->id,
                     'created_at' => fake()->dateTimeBetween($event->created_at, '1 hour'),
+                    'updated_at' => now(),
                 ]
             );
         }

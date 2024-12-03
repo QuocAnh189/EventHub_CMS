@@ -18,6 +18,8 @@ return new class extends Migration {
             $table->date('expire_date');
             $table->timestamps();
             $table->softDeletes();
+
+            $table->unique(['user_id', 'name']);
         });
     }
 

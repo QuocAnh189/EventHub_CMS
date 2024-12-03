@@ -14,6 +14,7 @@ return new class extends Migration {
             $table->float('total');
             $table->timestamps();
             $table->softDeletes();
+            $table->index(['event_id', 'created_at']);
         });
     }
 

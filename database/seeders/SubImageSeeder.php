@@ -17,6 +17,7 @@ class SubImageSeeder extends Seeder
                 SubImage::factory()->create([
                     'event_id' => $event->id,
                     'created_at' => $event->created_at,
+                    'updated_at' => now()
                 ]);
             }
         }

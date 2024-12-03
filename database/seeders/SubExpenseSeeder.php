@@ -15,6 +15,7 @@ class SubExpenseSeeder extends Seeder
         foreach ($expenses as $expense) {
             $remainingTotal = $expense->total;
             $subExpenseCount = rand(1, 5);
+            $created = fake()->dateTimeBetween($expense->created_at);
 
             for ($i = 1; $i <= $subExpenseCount; $i++) {
                 if ($i === $subExpenseCount) {
@@ -26,7 +27,8 @@ class SubExpenseSeeder extends Seeder
                 SubExpenses::factory()->create([
                     'expense_id' => $expense->id,
                     'price' => $price,
-                    'created_at' => fake()->dateTimeBetween($expense->created_at),
+                    'created_at' => $created,
+                    'updated_at' => now(),
                 ]);
 
                 $remainingTotal -= $price;

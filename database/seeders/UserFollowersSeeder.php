@@ -19,6 +19,7 @@ class UserFollowersSeeder extends Seeder
                 UserFollowers::factory()->create([
                     'follower_id' => $follower->id,
                     'followee_id' => $followee->id,
+                    'updated_at' => now()
                 ]);
             }
         }

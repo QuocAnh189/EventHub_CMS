@@ -13,12 +13,11 @@ return new class extends Migration {
             $table->foreignUuid('followee_id')->constrained('users')->cascadeOnDelete();
             $table->timestamps();
             $table->softDeletes();
+
+            $table->unique(['follower_id', 'followee_id']);
         });
     }
 
-    /**
-     * Reverse the migrations.
-     */
     public function down(): void
     {
         Schema::dropIfExists('user_followers');

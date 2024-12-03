@@ -13,6 +13,8 @@ return new class extends Migration {
             $table->foreignUuid('coupon_id')->constrained('coupons')->cascadeOnDelete();
             $table->timestamps();
             $table->softDeletes();
+
+            $table->unique(['event_id', 'coupon_id']);
         });
     }
 

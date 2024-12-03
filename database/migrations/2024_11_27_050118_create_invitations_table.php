@@ -14,6 +14,8 @@ return new class extends Migration {
             $table->foreignUuid('event_id')->constrained('events');
             $table->timestamps();
             $table->softDeletes();
+
+            $table->unique(['inviter_id', 'invitee_id', 'event_id']);
         });
     }
 
